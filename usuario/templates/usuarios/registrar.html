@@ -1,0 +1,22 @@
+{% extends 'investimento/base.html' %}
+{% block conteudo %}
+{% load widget_tweaks %}
+<div class="container">
+    <h1>Cadastrar novo usuário</h1>
+    <form method='POST'>
+        {% csrf_token %}
+        <div class='form-row align-items-center'>
+            <label>Nome usuario</label>
+            {% render_field formulario.username class='form-control' %}
+            <label>Email</label>
+            {% render_field formulario.email class='form-control pull-left' %}
+            <label>Senha</label>
+            {% render_field formulario.password1 class='form-control' %}
+            <label>Confirmar Senha</label>
+            {% render_field formulario.password2 class='form-control' %}
+        </div>
+        <button style="margin-top: 20px;" class="btn btn-primary" type="submit">Criar um usuario</button>
+        <a href="{% url 'login' %}">Já possui cadastro ? Entre aqui</a>
+    </form>
+</div>
+{% endblock %}

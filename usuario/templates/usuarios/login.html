@@ -1,0 +1,18 @@
+{% extends 'investimento/base.html' %}
+{% block conteudo %}
+{% load widget_tweaks %}
+<div class="container">
+    <form method='POST'>
+        <h1>Login</h1>
+        {% csrf_token %}
+        <div class='form-row align-items-center'>
+            <label>Usuario</label>
+            {% render_field form.username class='form-control' %}
+            <label>Senha</label>
+            {% render_field form.password class='form-control' %}
+        </div>
+        <button style='margin-top: 20px;' class="btn btn-primary" type="submit">Fazer login</button>
+        <a href="{% url 'novo_usuario' %}">Não possui conta ? Criar conta</a>
+    </form>
+</div>
+{% endblock %}
